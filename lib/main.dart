@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travel_app/ui/login.dart';
 import 'ui/homepage.dart'; // Import homepage.dart from ui folder
 
 void main() {
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Homepage(), // Set Homepage as the initial screen
+      home: Login(), // Set Homepage as the initial screen
     );
   }
 }

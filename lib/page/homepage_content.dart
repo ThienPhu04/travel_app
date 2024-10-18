@@ -70,14 +70,20 @@ class HomepageContent extends StatelessWidget {
               children: [
                 Row(
                   children: [
+                    SizedBox(width: 10),
                     Expanded(child: itemCategory()),
+                    SizedBox(width: 10),
                     Expanded(child: itemCategory()),
+                    SizedBox(width: 10),
                   ],
                 ),
                 Row(
                   children: [
+                    SizedBox(width: 10),
                     Expanded(child: itemCategory()),
+                    SizedBox(width: 10),
                     Expanded(child: itemCategory()),
+                    SizedBox(width: 10),
                   ],
                 )
               ],
@@ -156,8 +162,10 @@ class HomepageContent extends StatelessWidget {
   Widget itemCategory() {
     return Column(
       children: [
+        Padding(padding: EdgeInsets.all(10)),
         Container(
           height: 145,
+          color: Colors.amber,
         ),
         Text("Da Lat"),
         Text("298.563D"),
