@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:travel_app/ui/singin.dart';
+import 'package:travel_app/ui/Login/signin.dart';
+import 'package:travel_app/ui/Login/signup.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Login extends StatefulWidget {
@@ -48,7 +49,7 @@ class _LoginState extends State<Login> {
                   70), // Set button size
             ),
             child: Text(
-              "Tiếp Tục Với Google",
+              "Đăng Nhập Với Google",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
@@ -58,7 +59,7 @@ class _LoginState extends State<Login> {
           SizedBox(height: 10), // Space between two buttons
           ElevatedButton(
             onPressed: () {
-              // Add your onPressed logic here
+              SignIn(context);
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.black,
@@ -72,7 +73,7 @@ class _LoginState extends State<Login> {
                   70), // Set button size
             ),
             child: Text(
-              "Tiếp Tục Với Với Số Điện Thoại",
+              "Đăng Nhập Với Với Số Điện Thoại",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
@@ -93,7 +94,7 @@ class _LoginState extends State<Login> {
                       color: Colors.blueAccent, fontWeight: FontWeight.bold),
                   recognizer: _tapGestureRecognizer
                     ..onTap = () {
-                      SignIn(context);
+                      Signup(context);
                     },
                 ),
               ],
@@ -105,8 +106,14 @@ class _LoginState extends State<Login> {
   }
 }
 
+void Signup(BuildContext context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => SignUp()),
+  );
+}
+
 void SignIn(BuildContext context) {
-  // Chuyển hướng đến trang đăng nhập
   Navigator.push(
     context,
     MaterialPageRoute(builder: (context) => Signin()),

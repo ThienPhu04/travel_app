@@ -6,7 +6,7 @@ import 'package:travel_app/ui/train_page.dart';
 import '../ui/combo_page.dart';
 import '../ui/flight_page.dart';
 import '../ui/flight_status_page.dart';
-import '../ui/hotel_page.dart';
+import '../ui/Hotel/hotel_page.dart';
 
 class HomepageContent extends StatelessWidget {
   final TextEditingController _locationController = TextEditingController();

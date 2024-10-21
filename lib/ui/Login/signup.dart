@@ -1,14 +1,15 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:travel_app/ui/Login/confirm.dart';
 
-class Signin extends StatefulWidget {
-  const Signin({super.key});
+class SignUp extends StatefulWidget {
+  const SignUp({super.key});
 
   @override
-  State<Signin> createState() => _SigninState();
+  State<SignUp> createState() => _SignUpState();
 }
 
-class _SigninState extends State<Signin> {
+class _SignUpState extends State<SignUp> {
   final TextEditingController _phoneController = TextEditingController();
   final TapGestureRecognizer _tapGestureRecognizer = TapGestureRecognizer();
 
@@ -16,7 +17,7 @@ class _SigninState extends State<Signin> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Đăng Ký'), // Tiêu đề trang đăng nhập
+        title: Text('Đăng Ký'), // Tiêu đề trang đăng nhập
         backgroundColor: Colors.white70, // Màu của thanh AppBar
       ),
       body: Column(
@@ -42,19 +43,24 @@ class _SigninState extends State<Signin> {
               ),
             ),
           ),
-          TextField(
-            controller: _phoneController,
-            keyboardType: TextInputType.phone, // Chỉ cho phép nhập số
-            decoration: const InputDecoration(
-              labelText: 'Số điện thoại',
-              border: OutlineInputBorder(),
-              prefixIcon: Icon(Icons.phone), // Biểu tượng số điện thoại
+          Container(
+            width: MediaQuery.of(context).size.width * 0.9,
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: TextField(
+              controller: _phoneController,
+              keyboardType: TextInputType.phone, // Chỉ cho phép nhập số
+              decoration: const InputDecoration(
+                labelText: 'Số điện thoại',
+                border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.phone), // Biểu tượng số điện thoại
+              ),
             ),
           ),
           const SizedBox(height: 10),
           ElevatedButton(
             onPressed: () {
               // Logic xử lý khi nhấn nút (ví dụ: xác thực số điện thoại)
+              conFirm_(context);
               String phoneNumber = _phoneController.text;
               print('Số điện thoại: $phoneNumber'); // Chỉ để kiểm tra
             },
@@ -91,4 +97,11 @@ class _SigninState extends State<Signin> {
       ),
     );
   }
+}
+
+void conFirm_(BuildContext context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => ConfirmScreen()),
+  );
 }
