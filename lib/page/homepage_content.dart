@@ -4,7 +4,7 @@ import 'package:travel_app/ui/ticket_page.dart';
 import 'package:travel_app/ui/tour_page.dart';
 import 'package:travel_app/ui/train_page.dart';
 import '../ui/combo_page.dart';
-import '../ui/flight_page.dart';
+import '../ui/Flight/flight_page.dart';
 import '../ui/flight_status_page.dart';
 import '../ui/Hotel/hotel_page.dart';
 

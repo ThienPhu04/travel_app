@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import "package:intl/intl.dart";
+import 'package:travel_app/ui/Flight/flight_search_screen.dart';
 
 class FlightPage extends StatefulWidget {
   @override
@@ -100,7 +101,12 @@ class _FlightPage extends State<FlightPage> {
               height: 50,
               child: ElevatedButton(
                 onPressed: () {
-                  // Implement search action here
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            FlightSearchScreen()), // Replace with actual screen
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travel_app/ui/Hotel/detail_Hotel.dart';
 
 // Model cho dữ liệu khách sạn
 class Hotel {
@@ -69,93 +70,101 @@ class _HotelListState extends State<HotelList> {
 
   // Widget thẻ khách sạn
   Widget _buildHotelCard(Hotel hotel) {
-    return Container(
-      margin: EdgeInsets.only(bottom: 15.0),
-      padding: EdgeInsets.all(10.0),
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey),
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Hình ảnh khách sạn
-          ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: Image.network(
-              hotel.imageUrl,
-              width: 100,
-              height: 100,
-              fit: BoxFit.cover,
+    return InkWell(
+      onTap: () {
+        print('Hotel ${hotel.name} clicked!');
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => DetailHotel()));
+      },
+      child: Container(
+        margin: EdgeInsets.only(bottom: 15.0),
+        padding: EdgeInsets.all(10.0),
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.grey),
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Hình ảnh khách sạn
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Image.network(
+                hotel.imageUrl,
+                width: 100,
+                height: 100,
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-          SizedBox(width: 10), // Khoảng cách giữa ảnh và thông tin khách sạn
+            SizedBox(width: 10), // Khoảng cách giữa ảnh và thông tin khách sạn
 
-          // Thông tin khách sạn
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  hotel.name,
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  '${hotel.rating}/5',
-                  style: TextStyle(fontSize: 14, color: Colors.black54),
-                ),
-                SizedBox(height: 10), // Khoảng cách giữa tên khách sạn và giá
-
-                // Giá và giảm giá
-                Row(
-                  children: [
-                    // Giá gốc (gạch ngang)
-                    Text(
-                      '${hotel.originalPrice.toStringAsFixed(0)}đ',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey,
-                        decoration: TextDecoration.lineThrough,
-                      ),
+            // Thông tin khách sạn
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    hotel.name,
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
                     ),
-                    SizedBox(width: 5), // Khoảng cách giữa giá gốc và giảm giá
+                  ),
+                  Text(
+                    '${hotel.rating}/5',
+                    style: TextStyle(fontSize: 14, color: Colors.black54),
+                  ),
+                  SizedBox(height: 10), // Khoảng cách giữa tên khách sạn và giá
 
-                    // Phần giảm giá
-                    Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-                      decoration: BoxDecoration(
-                        color: Colors.pinkAccent,
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      child: Text(
-                        'Giảm ${hotel.discountPercent}%',
+                  // Giá và giảm giá
+                  Row(
+                    children: [
+                      // Giá gốc (gạch ngang)
+                      Text(
+                        '${hotel.originalPrice.toStringAsFixed(0)}đ',
                         style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.white,
+                          fontSize: 14,
+                          color: Colors.grey,
+                          decoration: TextDecoration.lineThrough,
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 5),
+                      SizedBox(
+                          width: 5), // Khoảng cách giữa giá gốc và giảm giá
 
-                // Giá đã giảm
-                Text(
-                  '${hotel.discountedPrice.toStringAsFixed(0)}đ',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.blueAccent,
+                      // Phần giảm giá
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 8.0, vertical: 4.0),
+                        decoration: BoxDecoration(
+                          color: Colors.pinkAccent,
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        child: Text(
+                          'Giảm ${hotel.discountPercent}%',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ],
+                  SizedBox(height: 5),
+
+                  // Giá đã giảm
+                  Text(
+                    '${hotel.discountedPrice.toStringAsFixed(0)}đ',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blueAccent,
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -171,4 +180,3 @@ class _HotelListState extends State<HotelList> {
 //     throw Exception('Failed to load hotels');
 //   }
 // }
-

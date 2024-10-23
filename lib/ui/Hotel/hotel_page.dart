@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travel_app/ui/Hotel/search_room.dart';
 
 class HotelPage extends StatefulWidget {
   @override
@@ -207,7 +208,12 @@ class _HotelPageState extends State<HotelPage> {
                       height: 50,
                       child: ElevatedButton(
                         onPressed: () {
-                          // Implement search action here
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    SearchRoom()), // Replace with actual screen
+                          );
                         },
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
