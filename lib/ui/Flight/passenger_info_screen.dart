@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:travel_app/ui/Flight/flight_details_screen.dart';
+import 'package:travel_app/ui/Flight/flight_page.dart';
+import 'package:travel_app/ui/Flight/flight_search_screen.dart';
 import 'package:travel_app/ui/Flight/payment_screen_state.dart';
 
 class PassengerInfoScreen extends StatefulWidget {
@@ -27,12 +30,6 @@ class _PassengerInfoScreenState extends State<PassengerInfoScreen> {
       appBar: AppBar(
         title: Text('Nhập Thông Tin'),
         centerTitle: true,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            // Handle back navigation
-          },
-        ),
         actions: [
           Icon(Icons.info_outline),
           SizedBox(width: 10),

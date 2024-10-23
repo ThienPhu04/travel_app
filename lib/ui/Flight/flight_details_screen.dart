@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travel_app/ui/Flight/flight_search_screen.dart';
 import 'package:travel_app/ui/Flight/passenger_info_screen.dart';
 
 class FlightDetailsScreen extends StatefulWidget {
@@ -13,12 +14,6 @@ class _FlightDetailsScreenState extends State<FlightDetailsScreen> {
       appBar: AppBar(
         title: Text('Chọn giá'),
         centerTitle: true,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            // Navigate back
-          },
-        ),
         actions: [
           Icon(Icons.notifications),
           SizedBox(width: 10),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/ui/Flight/flight_details_screen.dart';
 
+import 'flight_page.dart';
+
 class FlightSearchScreen extends StatefulWidget {
   @override
   _FlightSearchScreenState createState() => _FlightSearchScreenState();
